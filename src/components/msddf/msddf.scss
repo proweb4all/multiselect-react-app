@@ -1,0 +1,47 @@
+.msddf{
+  position: relative;
+  max-width: 300px;
+  margin: 15px auto;
+  text-align: center;
+  border: 1px solid #aaa;
+}
+.selected-block{
+  padding: 2px 3px;
+  // border: 1px solid #aaa;
+  text-align: left;
+}
+.main-block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // border: 1px solid #aaa;
+}
+.search-input{
+  // border: 1px solid #aaa;
+  border: none;
+  width: 250px;
+  font-size: 15px;
+  padding-left: 15px;
+  outline: none;
+}
+.btn-dropdown{
+  width: 32px;
+  height: 32px;
+  line-height: 33px;
+  // border: 1px solid #aaa;
+  cursor: pointer;
+}
+.dropdown-block{
+  position: absolute;
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  left: 0;
+  right: 0;
+  top: 100%;
+  border: 1px solid #aaa;
+  height: 200px;
+}
+.visible-block{
+  display: block;
+}
