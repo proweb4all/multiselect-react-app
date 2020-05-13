@@ -27,14 +27,6 @@ const cities = [
   {id: 9, name: 'city9__name', selected: true}
 ]
 
-
-document.onkeydown = function(e) {
-  if (e.keyCode === 27) {
-    const dropDouns = document.querySelectorAll('.dropdown-block')
-    dropDouns.forEach(elem => elem.classList.remove('visible-block'))
-  }
-}
-
 function App() {
   return (
     <div className='container'>

@@ -2,6 +2,21 @@ import React from 'react'
 import './msddf.scss';
 import SelectedItem from '../selected-item/SelectedItem';
 
+  document.onclick = function(e) {
+    const ttt = document.querySelectorAll('.msddf')
+    if (!e.target.closest('.msddf')) {
+      document.querySelectorAll('.dropdown-block').forEach(
+        elem => elem.classList.remove('visible-block')
+      )
+    }
+  }
+  document.onkeydown = function(e) {
+    if (e.keyCode === 27) {
+      const dropDouns = document.querySelectorAll('.dropdown-block')
+      dropDouns.forEach(elem => elem.classList.remove('visible-block'))
+    }
+  }
+
 
 class Msddf extends React.Component {
   constructor(props) {
