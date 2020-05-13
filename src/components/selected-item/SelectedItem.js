@@ -4,9 +4,10 @@ import "./selected-item.scss";
 const SelectedItem = (props) => {
   return (
     <div className='selected-item'>
-        <span className='selected-item__name'>{props.id}-{props.name}</span>
-        <div className='selected-item__close' onClick={props.unselectItem}>✖</div>
+      <span className='selected-item__name'>{props.id}-{props.name}</span>
+      <div className='selected-item__close' onClick={props.unselectItem}>✖</div>
     </div>
-)}
+  )
+}
 
-export default SelectedItem;
+export default SelectedItem

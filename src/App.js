@@ -6,7 +6,7 @@ const langs = [
   {id: 1, name: 'lang1__name', selected: false},
   {id: 2, name: 'lang2__name', selected: false},
   {id: 3, name: 'lang3__name', selected: false},
-  {id: 4, name: 'lang4__name', selected: true},
+  {id: 4, name: 'lang4__name', selected: false},
   {id: 5, name: 'lang5__name', selected: false},
   {id: 6, name: 'lang6__name', selected: false},
   {id: 7, name: 'lang7__name', selected: false},

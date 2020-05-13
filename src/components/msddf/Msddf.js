@@ -3,7 +3,6 @@ import './msddf.scss';
 import SelectedItem from '../selected-item/SelectedItem';
 
   document.onclick = function(e) {
-    const ttt = document.querySelectorAll('.msddf')
     if (!e.target.closest('.msddf')) {
       document.querySelectorAll('.dropdown-block').forEach(
         elem => elem.classList.remove('visible-block')
@@ -16,8 +15,6 @@ import SelectedItem from '../selected-item/SelectedItem';
       dropDouns.forEach(elem => elem.classList.remove('visible-block'))
     }
   }
-
-
 class Msddf extends React.Component {
   constructor(props) {
     super(props)
@@ -41,6 +38,7 @@ class Msddf extends React.Component {
       return items = newArr
     })
   }
+
   selectItem = (id) => {
     this.setState(({items}) => {
       const index = items.findIndex(elem => elem.id === id)
@@ -52,7 +50,6 @@ class Msddf extends React.Component {
   changeInputHandler = (event) => {
     this.setState({filterValue: event.target.value})
   }
-
 
   render() {
     const renderSelectedItem = this.state.items
@@ -73,26 +70,26 @@ class Msddf extends React.Component {
       ))
 
     return (
-        <div className='msddf'>
-          <div className='selected-block'>
-            {renderSelectedItem}
-          </div>
-          <div className='main-block'>
-            <input 
-              type="text" 
-              className="search-input" 
-              name="item"
-              onClick={this.inputClick}
-              onChange={this.changeInputHandler}
-            />
-            <div className='btn-dropdown' onClick={this.btnClick}>▼</div>
-          </div>
-          <div className='dropdown-block'>
-            <ul className='drop-down-items'>
-              {renderNotSelectedItem}
-            </ul>
-          </div>
+      <div className='msddf'>
+        <div className='selected-block'>
+          {renderSelectedItem}
         </div>
+        <div className='main-block'>
+          <input 
+            type="text" 
+            className="search-input" 
+            name="item"
+            onClick={this.inputClick}
+            onChange={this.changeInputHandler}
+          />
+          <div className='btn-dropdown' onClick={this.btnClick}>▼</div>
+        </div>
+        <div className='dropdown-block'>
+          <ul className='drop-down-items'>
+            {renderNotSelectedItem}
+          </ul>
+        </div>
+      </div>
     )
   }
 }
