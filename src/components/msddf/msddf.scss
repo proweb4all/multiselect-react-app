@@ -40,8 +40,26 @@
   right: 0;
   top: 100%;
   border: 1px solid #aaa;
-  height: 200px;
+  max-height: 200px;
 }
 .visible-block{
   display: block;
+}
+.drop-down-items{
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin-block-start: 1px;
+  margin-block-end: 1px;
+  text-align: left;
+  & li{
+    padding: 5px 15px;
+    border-bottom: 1px solid #dbe4ec;
+    cursor: pointer;
+    &:last-child{
+      border-bottom: none;
+    }
+    &:hover{
+      background-color: #eee;
+    }
+  }
 }

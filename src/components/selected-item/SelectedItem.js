@@ -1,18 +1,12 @@
 import React from "react";
 import "./selected-item.scss";
 
-
-
-const closeClick = (event) => {
-  console.log(event.target.parentElement)
-  event.target.parentElement.remove()
-}
-
-const SelectedItem = () => (
+const SelectedItem = (props) => {
+  return (
     <div className='selected-item'>
-        <span className='selected-item__name'>item__name</span>
-        <div className='selected-item__close' onClick={closeClick}>✖</div>
+        <span className='selected-item__name'>{props.id}-{props.name}</span>
+        <div className='selected-item__close' onClick={props.unselectItem}>✖</div>
     </div>
-)
+)}
 
 export default SelectedItem;

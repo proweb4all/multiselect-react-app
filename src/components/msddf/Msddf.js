@@ -1,78 +1,85 @@
 import React from 'react'
-import {connect} from 'react-redux'
-// import {createPost} from '../redux/actions'
 import './msddf.scss';
 import SelectedItem from '../selected-item/SelectedItem';
-import DropDown from '../drop-down/DropDown';
 
 
 class Msddf extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   title: ""
-    // }
+    this.state = {
+      items: props.items,
+      filterValue: ''
+    }
   }
   
-  submitHandler = event => {
-    // event.preventDefault()
-    // const {title} = this.state
-    // if (!title.trim()) {
-    //   return
-    // }
-    // const newPost = {
-    //   title, id: Date.now().toString()
-    // }
-    // console.log(newPost)
-    // this.props.createPost(newPost)
-    // this.setState({title: ''})
-  }
-
-  changeInputHandler = event => {
-    // event.persist()
-    // this.setState(prev => ({...prev, ...{
-    //   [event.target.name]: event.target.value
-    // }}))
-  }
-
   btnClick = event => {
     event.target.parentElement.nextElementSibling.classList.toggle('visible-block')
   }
   inputClick = event => {
-    // console.log(event.target)
     event.target.parentElement.nextElementSibling.classList.add('visible-block')
+  }
+  unselectItem = (id) => {
+    this.setState(({items}) => {
+      const index = items.findIndex(elem => elem.id === id)
+      const newArr = [...items]
+      newArr[index].selected = false;
+      return items = newArr
+    })
+  }
+  selectItem = (id) => {
+    this.setState(({items}) => {
+      const index = items.findIndex(elem => elem.id === id)
+      const newArr = [...items]
+      newArr[index].selected = true;
+      return items = newArr
+    })
+  }
+  changeInputHandler = (event) => {
+    this.setState({filterValue: event.target.value})
   }
 
 
   render() {
+    const renderSelectedItem = this.state.items
+      .filter(item => (item.selected))
+      .map(item => (
+        <SelectedItem 
+          key={item.id} 
+          id={item.id}
+          name={item.name} 
+          unselectItem={() => this.unselectItem(item.id)}
+        />
+      ))
+    let renderNotSelectedItem = this.state.items
+      .filter(item => (!item.selected))
+      .filter(item => (item.name.toLowerCase().indexOf(this.state.filterValue.toLowerCase()) > -1))
+      .map(item => (
+        <li key={item.id} onClick={() => this.selectItem(item.id)}>{item.name}</li>
+      ))
+
     return (
         <div className='msddf'>
           <div className='selected-block'>
-            <SelectedItem />
-            <SelectedItem />
-            <SelectedItem />
+            {renderSelectedItem}
           </div>
           <div className='main-block'>
             <input 
               type="text" 
               className="search-input" 
-              id="item" 
               name="item"
-              // value={this.state.title}
               onClick={this.inputClick}
-              // onChange={this.changeInputHandler}
+              onChange={this.changeInputHandler}
             />
-            {/* <div className='search-input' onClick={this.inputClick}>search-input</div> */}
             <div className='btn-dropdown' onClick={this.btnClick}>▼</div>
           </div>
-          <div className='dropdown-block'><DropDown /></div>
+          <div className='dropdown-block'>
+            <ul className='drop-down-items'>
+              {renderNotSelectedItem}
+            </ul>
+          </div>
         </div>
     )
   }
 }
 
-// const mapDispatchToProps = {
-//   createPost
-// }
-
-export default connect(null, null)(Msddf)
+export default Msddf
