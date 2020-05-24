@@ -1,0 +1,18 @@
+.main-block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-input{
+  border: none;
+  width: 250px;
+  font-size: 15px;
+  padding-left: 15px;
+  outline: none;
+}
+.btn-dropdown{
+  width: 32px;
+  height: 32px;
+  line-height: 33px;
+  cursor: pointer;
+}

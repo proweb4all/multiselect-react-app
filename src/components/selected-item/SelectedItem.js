@@ -1,11 +1,11 @@
 import React from "react";
 import "./selected-item.scss";
 
-const SelectedItem = (props) => {
+const SelectedItem = ({item, selectItem}) => {
   return (
     <div className='selected-item'>
-      <span className='selected-item__name'>{props.name}</span>
-      <div className='selected-item__close' onClick={props.unselectItem}>✖</div>
+      <span className='selected-item__name'>{item.name}</span>
+      <div className='selected-item__close' onClick={() => selectItem(item.id, false)}>✖</div>
     </div>
   )
 }
