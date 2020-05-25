@@ -54,6 +54,9 @@ class Msddf extends React.Component {
       const index = items.findIndex(elem => elem.id === id)
       const newArr = [...items]
       newArr[index].selected = onSelect;
+      if (this.props.onChangeState) {
+        this.props.onChangeState(newArr)
+      }
       return {items: newArr}
     })
   }

@@ -14,10 +14,21 @@ body {
 .title{
   text-align: center;
 }
-.center{
-  text-align: center;
-}
 .dropdowns-block{
   display: flex;
   justify-content: space-around;
+}
+.col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #aaa;
+  padding: 0 30px;
+}
+.center{
+  text-align: center;
+}
+.sd-title{
+  margin: 230px auto 1.33em;
 }
